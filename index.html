@@ -21,9 +21,18 @@
         environment: 'prod-euw1',
         deploymentId: '6be5dc68-b30a-4c86-8c7c-8ec68514bf11'
       });
+
+      // Attendre que la page charge avant d'ouvrir le chat après 5 secondes
+      window.onload = function() {
+        setTimeout(function() {
+          if (window.Genesys) {
+            window.Genesys("command", "Messenger.open");
+          }
+        }, 5000); // Délai de 5 secondes (5000 ms)
+      };
     </script>
 </head>
 <body>
-    
+
 </body>
 </html>
